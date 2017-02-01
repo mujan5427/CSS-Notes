@@ -10,29 +10,11 @@
   2. [樣式表的存在方式]()
 
 [Selectors](#selector)
-
-  1. []()
-
 [Style Inheritance](#style-inheritance)
-
-  1. []()
-
 [The Cascade](#the-cascade)
-
-  1. []()
-
 [Box Model](#box-model)
-
-  1. []()
-
 [Layouts](#layouts)
-
-  1. []()
-
 [Advanced CSS](#advanced-css)
-
-  1. []()
-
 [Reference Information](#reference-information)
 
 <br />
