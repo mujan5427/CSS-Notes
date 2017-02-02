@@ -362,6 +362,185 @@ What is CSS ?
 <br />
 <br />
 
+## The Cascade
+
+  * 管控屬性間互相作用以及衝突時處理的優先權，稱為疊層 (_Cascade_)
+
+  * 累加繼承樣式：繼承一群祖先元素的樣式，而產生的新樣式
+
+    ex :
+
+    ```html
+    <body>
+      <p>Hi everyone, I'm <strong>Justin</strong></p>
+    </body>
+    ```
+
+    ```css  
+    body {
+      font-family: Verdana, Arial;
+    }
+    p {
+      color: #F30000;
+    }
+    strong {
+      font-size: 24px;
+    }
+
+    /* <strong> 繼承祖先元素的屬性 font-family、color */
+
+    strong {
+      font-family: Verdana, Arial;
+      color: #F30000;
+      font-size: 24px;
+    }
+    ```
+
+  * 最鄰近祖先勝出：同一個屬性被多個祖先重複套用
+
+    ex :
+
+    ```html
+    <!-- <strong> 標籤的文字內容顏色會是綠色 -->
+
+    <body>
+      <p>Hi everyone, I'm <strong>Justin</strong></p>
+    </body>
+    ```
+
+    ```css
+    body {
+      color: red;
+    }
+    p {
+      color: green;
+    }
+    ```
+
+  * 直接套用者勝出：直接套用在標籤上的屬性，會覆蓋掉其他來自祖先元素的相同屬性
+
+    ex :
+
+    ```html
+    <!-- <strong> 標籤的文字內容顏色會是藍色 -->
+
+    <body>
+      <p>Hi everyone, I'm <strong>Justin</strong></p>
+    </body>
+    ```
+
+    ```css
+    body {
+      color: red;
+    }
+    p {
+      color: green;
+    }
+    strong {
+      color: blue;
+    }
+    ```
+
+  * 優先度最高者勝出：單一標籤，同時被多重樣式套用，瀏覽器將計算出樣式的優先度後，才進行套用
+
+    ex :
+
+    ```html
+    <!-- <p> 標籤的文字內容，將會套用藍色 -->
+
+    <body>
+      <p id="name" class="intro">Hi everyone, I'm Justin</p>
+    </body>
+    ```
+
+    ```css
+
+    /* 標籤選擇器 => 1 分 */
+
+    p {
+      color: red;
+    }
+
+    /* 類別選擇器 => 10 分 */
+
+    .intro {
+      color: green;
+    }
+
+    /* ID 選擇器 => 100 分 */
+
+    #name {
+      color: blue;
+    }
+    ```
+
+  * 優先度計算
+
+      - 標籤選擇器：1 分
+
+      - 擬元素：1 分
+
+      - 類別選擇器：10 分
+
+      - 屬性選擇器：10 分
+
+      - 擬類別：10 分
+
+      - ID 選擇器：100 分
+
+      - 行內樣式：1000 分
+
+      - 後裔選擇器：將上述各種類型的選擇器分數加總後，就是它的分數
+
+    ![selector's specificity](./assets/images/selector's-specificity.png)
+
+  * 位置順序最後的勝出：不同樣式選定相同元素，且優先度相同的情況，位置在最後面的樣式會被採用
+
+    ex :
+
+    ```html
+    <!-- <a> 標籤的文字內容將會套用 .byline a 樣式 -->
+
+    <p class="byline">Written by <a class="email" href="mailto:jean@cosmofarmer.com">Jean Graine de Pomme</a></p>
+    ```
+
+    ```css
+    p .email {
+      color: blue;
+    }
+
+    .byline a {
+      color: red;  
+    }
+    ```
+
+  * 推翻優先度：使用 `!important` 可以強制指定屬性的優先度為最高
+
+    ex :
+
+    ```html
+    <!-- <a> 標籤的文字內容將會套用 p .email 樣式 -->
+
+    <p class="byline">Written by <a class="email" href="mailto:jean@cosmofarmer.com">Jean Graine de Pomme</a></p>
+    ```
+
+    ```css
+    /* 下列兩個樣式優先度計算後都是 11 分，但是擁有 `!important` 的屬性優先度會是最高，因此它會被採用 */
+
+    p .email {
+      color: blue !important;
+    }
+
+    .byline a {
+      color: red;  
+    }
+    ```
+
+**[⬆ back to top](#table-of-contents)**
+
+<br />
+<br />
+
 ## Reference Information
 
 CSS：The Missing Manual, 4E Traditional Chinese (Author：David Sawyer McFarland)
