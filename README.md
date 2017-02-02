@@ -349,6 +349,19 @@ What is CSS ?
 <br />
 <br />
 
+## Style Inheritance
+
+  * 祖先元素擁有的屬性，傳遞到後裔元素身上，就稱為繼承 (_Inheritance_)
+
+  * CSS 中不是所有的屬性，都擁有繼承的特性
+
+  > 可在 [MDN Keyword Index](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference#Keyword_index) 中查詢，屬性可繼承
+
+**[⬆ back to top](#table-of-contents)**
+
+<br />
+<br />
+
 ## Reference Information
 
 CSS：The Missing Manual, 4E Traditional Chinese (Author：David Sawyer McFarland)
