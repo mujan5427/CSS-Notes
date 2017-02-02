@@ -541,6 +541,179 @@ What is CSS ?
 <br />
 <br />
 
+## Box Model
+
+  * **區塊模型 (_Box Model_)**：包含了標籤的內容、內距、邊線、外距
+
+    ![Box Model Example](./assets/images/box-model.png)
+
+  * 外距會在元素周圍增加空白區域，讓各元素之間保持距離
+
+  * 外距、內距屬性值的單位，如果是 `%` 瀏覽器則會根據外層元素的寬度來計算間距寬度
+
+    > 外層元素即為包覆在指定元素向外一層的元素，在沒有設定寬度的外層元素中則會根據瀏覽器視窗大小改變
+
+  * 外距、內距簡寫寫法如下：
+
+    ex :
+
+    ```css
+    /* 四邊都不同：上、右、下、左 */
+
+    .box {
+      padding: 0 10px 10px 20px;
+    }
+
+    /* 上下邊和左右邊：上和下、左和右 */
+
+    .box {
+      padding: 10px 20px;
+    }
+
+    /* 左右邊相同，上下邊不同：上、左和右、下 */
+
+    .box {
+      padding: 5px 20px 8px;
+    }
+
+    /* 四邊都相同 */
+
+    .box {
+      padding: 10px;
+      margin: 0;
+    }
+    ```
+
+    > 屬性值為 0，單位可以不寫
+
+  * 外距、內距屬性值可以是負數
+
+    ex :
+
+    ```css
+    .box {
+      padding: -10px;
+      margin: -5%;
+    }
+    ```
+
+  * 行內元素 (_Inline Elements_) 只有左右內、外距，不能使用上下內、外距
+
+  * 行內元素可以使用 `display` 屬性，改變成區塊等級元素、行內區塊...等等
+
+  * 邊線簡寫寫法如下：
+
+    ```css
+    /* border 屬性值的順序不會影響結果 */
+
+    .box {
+      border: 4px solid rgb(255, 0, 0);
+    }
+
+    .box {
+      border: solid rgb(255, 0, 0) 4px;
+    }
+
+    /* 為個別邊線套用樣式 */
+
+    .box {
+      border: 2px solid red;
+      border-bottom: 4px dashed #333333;
+    }
+
+    /* 可以使用 none 屬性值，取消邊線 */
+
+    .box {
+      border: 2px solid red;
+      border-bottom: none;
+    }
+    ```
+
+  * 內容區塊 (_Content Area_) 的寬、高，可以透過 width 和 height 屬性設定
+
+    ex :
+
+    ```css
+    .box {
+      width: 50px;
+      height: 80px;
+    }
+    ```
+
+  * 預設的區塊模型實際的寬度計算為，外距、邊線、內距和內容區塊寬度的總和
+
+    ex :
+
+    ```css
+    /* 寬度總和為 160px */
+
+    .box {
+      width: 100px;
+      padding: 15px;
+      border-width: 5px;
+      margin: 10px;
+    }
+    ```
+
+  * 改變瀏覽器計算元素寬度的方式，可以使用 `box-sizing` 屬性，屬性直如下：
+
+    - content-box：瀏覽器預設的模式
+
+    - padding-box：瀏覽器會將內距的寬度納入到內容區塊
+
+      ex :
+
+      ```css
+      /* 元素寬度總和為 100px，其中內容區塊為：60px (100px-20px-20px) */
+
+      .box {
+        box-sizing: padding-box;
+        width: 100px;
+        padding: 0 20px;
+      }
+      ```
+
+    - border-box：瀏覽器會將內距、邊線的寬度納入到內容區塊
+
+      ex :
+
+      ```css
+      /* 元素寬度總和為 100px，其中內容區塊為：50px (100px-20px-20px-5px-5px) */
+
+      .box {
+        box-sizing: padding-box;
+        width: 100px;
+        padding: 0 20px;
+        border: 5px solid blue;
+      }
+      ```
+
+  * 內容區塊大於樣式所設定的寬高時，內容區塊中的內容會溢出 box 區域，可使用 `overflow` 屬性控制
+
+    - visible：瀏覽器的預設設定，內容會溢出 box 區域
+
+    - scroll：增加捲軸在元素中，使內容不會溢出 (捲軸永遠顯示)
+
+    - auto：同 scroll，但捲軸只在需要時顯示
+
+    - hidden：隱藏所有溢出 box 的內容
+
+  * 設定元素的寬、高最大值和最小值
+
+    - max-width
+
+    - min-width
+
+    - max-height
+
+    - min-height
+
+
+**[⬆ back to top](#table-of-contents)**
+
+<br />
+<br />
+
 ## Reference Information
 
 CSS：The Missing Manual, 4E Traditional Chinese (Author：David Sawyer McFarland)
