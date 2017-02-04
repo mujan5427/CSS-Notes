@@ -19,6 +19,10 @@
 
 [Layouts](#layouts)
 
+  1. [Basic Typesetting Methods](#basic-typesetting-methods)
+  2. [Float Layout](#float-layout)
+  3. [Responsive Web Design](#responsive-web-design)
+
 [Advanced CSS](#advanced-css)
 
 [Reference Information](#reference-information)
@@ -708,6 +712,144 @@ What is CSS ?
 
     - min-height
 
+**[⬆ back to top](#table-of-contents)**
+
+<br />
+<br />
+
+## Layouts
+
+ <!--
+
+ 這章各個 section 寫作順序 (按照 The Missing Manual 書本)
+
+ 1. O 第十四章
+ 2. O 第十三章
+ 3. O 第十五章
+ 4. 第十七章
+
+ -->
+
+ <a name="basic-typesetting-methods"></a>
+ 基礎排版方式
+
+  * `position` 屬性能設定元素的定位方式，並透過 `top`、`bottom`、`left`、`right` 指定元素具體位置
+
+      - 絕對 (_Absolute_)：將元素透過絕對方式定位 (元素重疊時，絕對定位元素不會干擾到其他元素)
+
+        ![Position Absolute](./assets/images/position-absolute.png)
+
+      - 相對 (_Relative_)：根據元素原始位置的相對方向做定位，相對定位元素會在自己的原始位置保留一個 "洞"
+
+        ![Position Relative](./assets/images/position-relative.png)
+
+      - 固定 (_Fixed_)：將元素固定鎖在螢幕上的指定位置，滾動頁面時會跟著移動
+
+        ![Position Fixed](./assets/images/position-fixed.png)
+
+      - 靜態 (_Static_)：元素預設的定位方式
+
+        ![Position Static](./assets/images/position-static.png)
+
+        > `top`、`bottom`、`left`、`right` 不會作用在靜態定位元素上
+
+  * `float` 和 `position: 非 static` 無法同時存在同一個元素
+
+  * 瀏覽器視窗的顯示區域稱為 viewport 有上下左右四邊，對應到 CSS 屬性 `top`、`bottom`、`left`、`right`
+
+  * 絕對定位元素包含另一個絕對定位元素 (子元素)，該子元素會根據父元素的四個邊做絕對定位，而不是根據瀏覽器視窗
+
+  * 絕對定位元素的位置，會根據該元素在何種元素之中而做改變
+
+      - 元素相對於瀏覽器視窗定位：此情況發生在，絕對定位元素不在絕對、相對、固定定位元素之中
+
+      - 元素相對於其他元素的邊緣：此情況發生在，元素在絕對、相對、固定定位元素之中
+
+  * 堆疊元素：絕對定位元素會在其他定位元素之上或之下，元素的堆疊順序可透過 `z-index` 屬性控制
+
+**[⬆ back to top](#table-of-contents)**
+
+<br />
+<br />
+
+ <a name="float-layout"></a>
+ 浮動版型
+
+  * 透過 `float` 屬性可使元素成為浮動元素，在浮動元素下方的元素都會往上移動，達到文繞圖的效果
+
+    > 浮動元素會根據 HTML source order 做浮動，如果元素在浮動元素之前，則不會被影響到
+
+    ![Float Elements](./assets/images/float-elements.png)
+
+  * `float` 接受三種不同的值 `left`、`right`、`none`
+
+    > none 會將任何浮動取消，用正常不浮動的方式放置元素
+
+  * 讓浮動元素下方的元素，不會往上移動到浮動元素旁邊，可使用 `clear` 屬性
+
+  * `clear` 接受三種不同的值 `left`、`right`、`both`
+
+**[⬆ back to top](#table-of-contents)**
+
+<br />
+<br />
+
+<a name="">responsive-web-design</a>
+響應式網頁設計
+
+  * 響應式網頁設計 (_Responsive Web Design_) 又稱 RWD 讓頁面根據瀏覽器視窗寬度改變版型，可使同一個網站兼容不同螢幕大小的設備
+
+  * 實作 RWD 主要有三個思維：
+
+    - 彈性的版型：隨著螢幕大小改變，彈性改變版型
+
+    - 彈性的圖像及影像媒體：隨著螢幕大小改變，彈性改變圖像及影像媒體
+
+    - 媒體查詢 (_Media Queries_)：為不同螢幕大小，套用不同樣式
+
+  * 媒體查詢可在外部樣式表及內部樣式表中建立，並設定指定中斷點 (_Breakpoints_)
+
+    - 指定螢幕寬度時：media="(width: 480px)"
+
+    - 指定螢幕寬度以下時：media="(max-width: 480px)"
+
+    - 指定螢幕寬度以上時：media="(min-width: 480px)"
+
+    - 指定螢幕寬度區間時：media="(min-width: 480px) and (max-width: 768px)"
+
+    - 建立外部樣式表媒體查詢：
+
+      ex :
+
+      ```html
+      <link href="css/main.css" rel="stylesheets" media="(width: 480px)">
+      ```
+
+    - 建立內部樣式表媒體查詢：
+
+      ex :
+
+      ```css
+      @media (min-width: 481px) and (max-width: 768px) {
+
+        .style {
+
+          /* style properties go here */
+
+        }
+
+      }
+
+      @media (max-width: 480px) {
+
+        .style {
+
+          /* style properties go here */
+
+        }
+
+      }
+      ```
 
 **[⬆ back to top](#table-of-contents)**
 
