@@ -856,6 +856,213 @@ What is CSS ?
 <br />
 <br />
 
+<a name="flexbox"></a>
+Flexbox
+
+  * Flexbox 由兩個元件組成：
+
+    - **Flex 容器 (_Flex Container_)**：任何 HTML 元素都可以是 flex 容器，只要它的 `display` 設定為 `flex`
+
+    - **Flex 物件 (_Flex Object_)**： 任何 HTML 元素都可以是 flex 物件，只要是容器中的子元素會自動變成物件，物件會比鄰而列放在同一行，無論視窗多窄物件都不會換行，即使物件跑到容器之外
+
+  * Flex Container 屬性：
+
+    - `flex-flow`：能掌控物件顯示方向及是否換行，需要兩個數值，以空白區隔
+
+      - 第一個數值是方向，有四種值：
+
+        - row：預設的顯示方向，比鄰而列顯示物件，HTML source order 第一個物件會在最左邊，最後一個物件在最右邊
+
+        - row-reverse：比鄰而列顯示物件，但是會翻轉原本 HTML source order 顯示的順序，改為最後一個物件在最左邊
+
+        - column：使物件如同區塊等級元素般上下堆疊
+
+        - column-reverse：如同 column，只是翻轉原本 HTML source order 顯示的順序
+
+      - 第二個數值是是否換行或換欄，有三種值：
+
+        - nowrap：預設的換行方式，無論視窗多窄，物件都會保持在同一列，對於欄則是上下堆疊排列
+
+        - wrap：讓無法被容器寬度容納的物件換行，也就是物件不會跑到容器之外
+
+        - wrap-reverse：如同 wrap，只是翻轉原本 HTML source order 顯示的順序
+
+      ex :
+
+      ```css
+      .container {
+        display: flex;
+        flex-flow: row nowrap;
+      }
+      ```
+
+    - `justify-content`：能掌控物件對齊方式，只在物件有固定寬度並且物件總寬度小於容器時
+
+      > 如果使用 flex 屬性在物件上，則此屬性會完全沒有效果
+
+      - flex-start：靠左對齊物件 (#1)
+
+      - flex-end：靠右對齊物件 (#2)
+
+      - center：置中對齊物件 (#3)
+
+      - space-between：將物件與物件之間的空白間距，平均分配在每個物件與物件之間 (#4)
+
+      - space-around：將物件與物件之間的空白間距，平均分配在每個物件兩側 (#5)
+
+      ![Flexbox justify-content](./assets/images/flexbox-justify-content.png)
+
+      ex :
+
+      ```css
+      .container {
+        display: flex;
+        justify-content: space-around;
+      }
+      ```
+
+    - `align-items`：決定不同高度的物件如何在容器中垂直擺放
+
+      - flex-start：對齊所有物件的上方到容器上方 (#1)
+
+      - flex-end：對齊所有物件的下方到容器下方 (#2)
+
+      - center：垂直置中所有物件 (#3)
+
+      - baseline：對齊每個物件中第一個元素的底線 (#4)
+
+      - stretch：物件的預設垂直擺放方式，將每個物件延展至與容器相同高度 (#5)
+
+      ![Flexbox align-items](./assets/images/flexbox-align-items.png)
+
+      ex :
+
+      ```css
+      .container {
+        display: flex;
+        align-items: flex-start;
+      }
+      ```
+
+    - `align-content`：在容器的寬度小於物件總寬度時，決定物件如何在容器中垂直擺放
+
+      > 不會因為物件總寬度大於容器，而改變物件寬度，但會讓物件換行 (align-items 則相反)
+
+      > 因為此屬性會使物件換行，所以物件對齊到上方容器，不是全部物件一起對齊，只會以最上方列的物件對齊
+
+      > 必須在容器 `flex-wrap: wrap` 和容器的寬度小於物件總寬度時才有效
+
+      - flex-start：將物件的上方對齊到容器上方
+
+      - flex-end：將物件的下方對齊到容器下方
+
+      - center：垂直置中所有物件
+
+      - space-between：將上方列物件對齊到容器上方，下方列物件對齊到容器下方
+
+      - space-around：將上方列物件對齊到容器上方，下方列物件對齊到容器下方，並平均分配物件與物件之間的空白間距
+
+      - stretch：物件列的預設垂直擺放方式，將每個物件延展成相同高度，不同列有不同高度的延展
+
+  * Flex Object 屬性：
+
+    - `order`：使物件不按照 HTML source order 排序，而是按照設定的屬性值依序顯示，屬性值使用數字表示，越小越前面
+
+      > 可以只設定一群物件中的其中一個物件，往最左邊排設定 -1，往最右邊排設定 1
+
+      ex :
+
+      ```css
+      .flex-items {
+        order: 1;
+      }
+      ```
+
+    - `align-self`：使指定物件按照指定方式垂直對齊
+
+      > 會覆蓋任何 `align-items` 屬性，因此可達到所有物件對齊容器下方，其中一個對齊容器上方的效果
+
+      - flex-start：將物件對齊到容器上方
+
+      - flex-end：將物件對齊到容器下方
+
+      - center：垂直置中物件
+
+      - baseline：對齊物件中第一個元素的底線
+
+        > 只有在數個 `align-self: baseline` 物件存在時，才有效果
+
+      - stretch：物件的預設垂直擺放方式，將物件延展至與容器相同高度
+
+      ex :
+
+      ```css
+      .flex-items {
+        align-self: flex-end;
+      }
+      ```
+
+    - `flex`：實際上是三個屬性的簡寫 `flex-grow`、`flex-shrink`、`flex-basis`
+
+      - 如果物件沒有被設定 `flex` 屬性，瀏覽器會使用預設值 `flex: 0 1 auto`
+
+      - 如果省略 `flex-shrink`、`flex-basis` 不寫，而 `flex: 1` 時，瀏覽器會使用預設值 `flex: 1 1 0%`
+
+      ex :
+
+      ```css
+      .flex-items {
+        flex: 1 1 100px;
+      }
+      ```
+
+    - `flex-grow`：指定物件的相對寬度，屬性值為相對單位，使用數字表示，如果 `flex-basis` 數值相同，則數字越大越寬
+
+      > `flex-grow` 大於 0 時，物件會放大填滿容器整體寬度
+
+      > `flex-grow` 等於 0 時，物件的寬度會等於 `flex-basis` 設定的數值
+
+      ![Flexbox flex-grow](./assets/images/flexbox-flex-grow.png)
+
+      ex :
+
+      ```css
+      .flex-items {
+        flex-grow: 1;
+      }
+      ```
+
+    - `flex-shrink`：決定相同列中的物件可以相對於其他物件寬度變得多窄，屬性值為相對單位，使用數字表示，數字越大越窄
+
+      > 此數值只有在 `flex-wrap: nowrap` 及物件總寬度大於容器時作用
+
+      ex :
+
+      ```css
+      .flex-items {
+        flex-shrink: 4;
+      }
+      ```
+
+    - `flex-basis`：決定物件的基本寬度，屬性值為具體數值，可用 `px`、`em`、`%` 表示
+
+      > 瀏覽器會把剩餘空間按照 `flex-grow` 指定的比例，加總到物件設定的 `flex-basis` 寬度上，得出物件實際的寬度，以達到填滿容器的效果
+
+      > 剩餘空間 = 容器寬度 - 物件總寬度
+
+      ex :
+
+      ```css
+      .flex-items {
+        flex-basis: 400px;
+      }
+      ```
+
+**[⬆ back to top](#table-of-contents)**
+
+<br />
+<br />
+
 ## Reference Information
 
 CSS：The Missing Manual, 4E Traditional Chinese (Author：David Sawyer McFarland)
