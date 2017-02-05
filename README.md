@@ -22,6 +22,7 @@
   1. [Basic Typesetting Methods](#basic-typesetting-methods)
   2. [Float Layout](#float-layout)
   3. [Responsive Web Design](#responsive-web-design)
+  4. [Flexbox](#flexbox)
 
 [Advanced CSS](#advanced-css)
 
@@ -719,19 +720,8 @@ What is CSS ?
 
 ## Layouts
 
- <!--
-
- 這章各個 section 寫作順序 (按照 The Missing Manual 書本)
-
- 1. O 第十四章
- 2. O 第十三章
- 3. O 第十五章
- 4. 第十七章
-
- -->
-
- <a name="basic-typesetting-methods"></a>
- 基礎排版方式
+<a name="basic-typesetting-methods"></a>
+Basic Typesetting Methods
 
   * `position` 屬性能設定元素的定位方式，並透過 `top`、`bottom`、`left`、`right` 指定元素具體位置
 
@@ -772,8 +762,8 @@ What is CSS ?
 <br />
 <br />
 
- <a name="float-layout"></a>
- 浮動版型
+<a name="float-layout"></a>
+Float Layout
 
   * 透過 `float` 屬性可使元素成為浮動元素，在浮動元素下方的元素都會往上移動，達到文繞圖的效果
 
@@ -794,8 +784,8 @@ What is CSS ?
 <br />
 <br />
 
-<a name="">responsive-web-design</a>
-響應式網頁設計
+<a name="responsive-web-design"></a>
+Responsive Web Design
 
   * 響應式網頁設計 (_Responsive Web Design_) 又稱 RWD 讓頁面根據瀏覽器視窗寬度改變版型，可使同一個網站兼容不同螢幕大小的設備
 
