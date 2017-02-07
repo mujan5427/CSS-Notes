@@ -65,7 +65,7 @@ CSS Syntax
 
       - **宣告區塊 (_Declaration Block_)**：The declaration block contains one or more declarations separated by semicolons.
 
-      > declaration blocks are surrounded by curly braces.
+        > declaration blocks are surrounded by curly braces.
 
         - **宣告 (_Declaration_)**：Each declaration includes a CSS property name and a value, separated by a colon.
 
