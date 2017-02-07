@@ -6,14 +6,22 @@
 
 [Style Sheets](#stylesheets)
 
-  1. [樣式剖析]()
-  2. [樣式表的存在方式]()
+  1. [CSS Syntax](#css-syntax)
+  2. [CSS Comments](#css-comments)
+  3. [Three Ways to Insert CSS](#three-ways-to-insert-css)
 
 [Selectors](#selector)
 
 [Style Inheritance](#style-inheritance)
 
 [The Cascade](#the-cascade)
+
+[Width and Height](#width-and-height)
+
+  1. [Setting width And height][#setting-width-and-height]
+  2. [Setting max-width](#setting-max-width)
+
+[Display](#display)
 
 [Box Model](#box-model)
 
@@ -37,6 +45,8 @@ What is CSS ?
 
   * **階層樣式表 (_Cascading Style Sheets_)**：簡稱 CSS，藉由它來讓以 HTML 為根基的網頁變好看
 
+  * CSS describes how HTML elements are to be displayed on screen, paper, or in other media
+
 **[⬆ back to top](#table-of-contents)**
 
 <br />
@@ -44,22 +54,24 @@ What is CSS ?
 
 ## Style Sheets
 
-<a name=""></a>
-樣式剖析
+<a name="css-syntax"></a>
+CSS Syntax
 
   * 一個樣式定義了頁面上一個元素的外觀，它只是一個規則用來告知瀏覽器，該如何呈現網頁上的一些東西
 
   * 樣式主要由兩個部分組成：
 
-      - **選擇器 (_Selector_)**：瀏覽器要呈現的網頁元素
+      - **選擇器 (_Selector_)**：The selector points to the HTML element you want to style.
 
-      - **宣告區塊 (_Declaration Block_)**：元素實際上的呈現方式，以 `{` 開始，`}` 結束
+      - **宣告區塊 (_Declaration Block_)**：The declaration block contains one or more declarations separated by semicolons.
 
-        - **宣告 (_Declaration_)**：宣告區塊中，可添加一至多個 **宣告**，以 `;` 結尾
+      > declaration blocks are surrounded by curly braces.
 
-        - **屬性 (_Property_)**：各種格式的選項
+        - **宣告 (_Declaration_)**：Each declaration includes a CSS property name and a value, separated by a colon.
 
-        - **值 (_Value_)**：屬性的值
+        - **屬性 (_Property_)**
+
+        - **值 (_Value_)**
 
     ![CSS Style Example](./assets/images/css-style-example.png)
 
@@ -68,12 +80,36 @@ What is CSS ?
 <br />
 <br />
 
-<a name=""></a>
-樣式表的存在方式
+<a name="css-comments"></a>
+CSS Comments
+
+  * A CSS comment starts with `/*` and ends with `*/`, Comments can also span multiple lines
+
+    ex :
+
+    ```css
+    p {
+      color: red;
+      /* This is a single-line comment */
+      text-align: center;
+    }
+
+    /* This is
+    a multi-line
+    comment */
+    ```
+
+**[⬆ back to top](#table-of-contents)**
+
+<br />
+<br />
+
+<a name="three-ways-to-insert-css"></a>
+Three Ways to Insert CSS
 
   * 樣式表有三種方式可載入於頁面：
 
-    - 內部：屬於網頁頁面程式碼的一部分，存在 `<head>` 區塊的 `<style>` 標籤中
+    - **內部樣式表 (_Internal Style Sheet_)**：屬於網頁頁面程式碼的一部分，存在 `<head>` 區塊的 `<style>` 標籤中
 
       ex :
 
@@ -103,7 +139,7 @@ What is CSS ?
       </html>
       ```
 
-    - 外部：就是一個副檔名為 `.css` 的樣式表檔案，透過 `<link>` 標籤可以載入指定的樣式表
+    - **外部樣式表 (_External style sheet_)**：就是一個副檔名為 `.css` 的樣式表檔案，透過 `<link>` 標籤可以載入指定的樣式表
 
       ex :
 
@@ -111,7 +147,7 @@ What is CSS ?
       <link rel="stylesheet" href="css/styles.css">
       ```
 
-    - 行內：即是將樣式撰寫於 HTML 標籤的 `style` 屬性之中
+    - **行內樣式 (_Inline style_)**：即是將樣式撰寫於 HTML 標籤的 `style` 屬性之中
 
       ex :
 
@@ -141,7 +177,7 @@ What is CSS ?
     }
     ```
 
-  * **類別選擇器 (_Class Selectors_)**：選定頁面上每一個標籤的 `class` 屬性中，擁有該類別者
+  * **類別選擇器 (_Class Selectors_)**：選定頁面上每一個標籤的 `class` 屬性中，擁有該類別名稱者
 
     - 名稱必須以 `.` 開頭
 
@@ -171,7 +207,28 @@ What is CSS ?
     }
     ```
 
-  * **ID 選擇器 (ID Selectors)**：選定頁面上標籤的 `id` 屬性中，擁有該 ID 者
+    > You can also specify that only specific HTML elements should be affected by a class.
+
+    ex :
+
+    ```css
+    /* only <p> elements with class="center" will be center-aligned */
+
+    p.center {
+      text-align: center;
+      color: red;
+    }
+    ```
+
+
+
+  * **ID 選擇器 (ID Selectors)**：The id selector uses the id attribute of an HTML element to select a specific element.
+
+  * The id of an element should be unique within a page
+
+  * To select an element with a specific id, write a hash (#) character, followed by the id of the element.
+
+    > An id name cannot start with a number!
 
     ex :
 
@@ -189,7 +246,7 @@ What is CSS ?
     }
     ```
 
-  * **群組選擇器 (_Grouping Selectors_)**：選定頁面上指定的群組標籤，可以使用任何有效的選擇器
+  * **群組選擇器 (_Grouping Selectors_)**：選定頁面上指定的標籤群，賦予相同樣式，可以使用任何有效的選擇器
 
     ex :
 
@@ -371,6 +428,16 @@ What is CSS ?
 
   * 管控屬性間互相作用以及衝突時處理的優先權，稱為疊層 (_Cascade_)
 
+  * Where number one has the highest priority：
+
+    - Inline style (inside an HTML element)
+
+    - External and internal style sheets (in the head section)
+
+    - Browser default
+
+    > So, an inline style has the highest priority, which means that it will override a style defined inside the <head> tag, or in an external style sheet, or a browser default value.
+
   * 累加繼承樣式：繼承一群祖先元素的樣式，而產生的新樣式
 
     ex :
@@ -546,13 +613,70 @@ What is CSS ?
 <br />
 <br />
 
+## Width and Height
+
+<a name="setting-width-and-height"></a>
+Setting width And height
+
+  * The `height` and `width` properties are used to set the height and width of an element.
+
+  * The `height` and `width` can be set to auto (this is default. Means that the browser calculates the height and width), or be specified in length values, like px, cm, etc., or in percent (%) of the containing block.
+
+    ex :
+
+    ```css
+    div {
+      height: 200px;
+      width: 50%;
+    }
+    ```
+
+**[⬆ back to top](#table-of-contents)**
+
+<br />
+<br />
+
+<a name="setting-max-width"></a>
+Setting max-width
+
+  * The `max-width` property is used to set the maximum width of an element.
+
+  * The `max-width` can be specified in length values, like px, cm, etc., or in percent (%) of the containing block, or set to none (this is default. Means that there is no maximum width).
+
+  * The value of the `max-width` property overrides `width`.
+
+  * You can set the margins to auto, to horizontally center the element within its container.
+
+**[⬆ back to top](#table-of-contents)**
+
+<br />
+<br />
+
+## Display
+
+  * The `display` property specifies if/how an element is displayed.
+
+  * Every HTML element has a default display value depending on what type of element it is. The default display value for most elements is `block` or `inline`.
+
+  * Hiding an element can be done by setting the `display` property to `none`, `visibility: hidden` also hides an element. However, the element will still take up the same space as before. The element will be hidden, but still affect the layout.
+
+  * Setting the display property of an element only changes how the element is displayed, **NOT** what kind of element it is. So, an inline element with `display: block` is not allowed to have other block elements inside it.
+
 ## Box Model
 
-  * **區塊模型 (_Box Model_)**：包含了標籤的內容、內距、邊線、外距
+  * **區塊模型 (_Box Model_)**：All HTML elements can be considered as boxes, It consists of：margins, borders, padding, and the actual content.
 
     ![Box Model Example](./assets/images/box-model.png)
 
-  * 外距會在元素周圍增加空白區域，讓各元素之間保持距離
+  * Explanation of the different parts：
+
+    - Margin：Clears an area outside the border. The margin is transparent
+
+    - Border：A border that goes around the padding and content
+
+    - Padding：Clears an area around the content. The padding is transparent
+
+    - Content：The content of the box, where text and images appear
 
   * 外距、內距屬性值的單位，如果是 `%` 瀏覽器則會根據外層元素的寬度來計算間距寬度
 
@@ -634,7 +758,7 @@ What is CSS ?
     }
     ```
 
-  * 內容區塊 (_Content Area_) 的寬、高，可以透過 width 和 height 屬性設定
+  * 內容區塊 (_Content Area_) 的寬、高，可以透過 `width` 和 `height` 屬性設定
 
     ex :
 
