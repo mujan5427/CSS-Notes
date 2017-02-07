@@ -18,7 +18,7 @@
 
 [Width and Height](#width-and-height)
 
-  1. [Setting width And height][#setting-width-and-height]
+  1. [Setting width And height](#setting-width-and-height)
   2. [Setting max-width](#setting-max-width)
 
 [Display](#display)
