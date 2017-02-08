@@ -446,6 +446,17 @@ Three Ways to Insert CSS
     }
     ```
 
+    - Pseudo-elements can be combined with CSS classes.
+
+      ex :
+
+      ```css
+      p.intro::first-letter {
+        color: #ff0000;
+        font-size:200%;
+      }
+      ```
+
     - Multiple Pseudo-elements：Several pseudo-elements can also be combined.
 
       ex :
