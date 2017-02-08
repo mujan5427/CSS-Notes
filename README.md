@@ -658,6 +658,8 @@ Setting max-width
 
   * Every HTML element has a default display value depending on what type of element it is. The default display value for most elements is `block` or `inline`.
 
+  * `inline-block` elements are like `inline` elements but they can have a width and a height.
+
   * Hiding an element can be done by setting the `display` property to `none`, `visibility: hidden` also hides an element. However, the element will still take up the same space as before. The element will be hidden, but still affect the layout.
 
   * Setting the display property of an element only changes how the element is displayed, **NOT** what kind of element it is. So, an inline element with `display: block` is not allowed to have other block elements inside it.
@@ -819,13 +821,21 @@ Setting max-width
 
   * 內容區塊大於樣式所設定的寬高時，內容區塊中的內容會溢出 box 區域，可使用 `overflow` 屬性控制
 
+    > The `overflow` property only works for block elements with a specified height.
+
     - visible：瀏覽器的預設設定，內容會溢出 box 區域
 
-    - scroll：增加捲軸在元素中，使內容不會溢出 (捲軸永遠顯示)
+    - scroll：增加捲軸在元素中，使內容不會溢出 (even if you do not need it)
 
     - auto：同 scroll，但捲軸只在需要時顯示
 
     - hidden：隱藏所有溢出 box 的內容
+
+  * The `overflow-x` and `overflow-y` properties specifies whether to change the overflow of content just horizontally or vertically (or both)
+
+    - `overflow-x` specifies what to do with the left/right edges of the content.
+
+    - `overflow-y` specifies what to do with the top/bottom edges of the content.
 
   * 設定元素的寬、高最大值和最小值
 
@@ -879,7 +889,30 @@ Basic Typesetting Methods
 
       - 元素相對於其他元素的邊緣：此情況發生在，元素在絕對、相對、固定定位元素之中
 
+  * When elements are positioned, they can overlap other elements.
+
   * 堆疊元素：絕對定位元素會在其他定位元素之上或之下，元素的堆疊順序可透過 `z-index` 屬性控制
+
+  * An element can have a positive or negative stack order.
+
+    ex :
+
+    ```css
+    img {
+      position: absolute;
+      left: 0px;
+      top: 0px;
+      z-index: -1;
+    }
+    ```
+
+  * An element with greater stack order is always in front of an element with a lower stack order.
+
+  * If two positioned elements overlap without a `z-index` specified, the element positioned last in the HTML code will be shown on top.
+
+  * To horizontally center a block element, use `margin: auto`. The element will then take up the specified width, and the remaining space will be split equally between the two margins.
+
+    > Center aligning has no effect if the width property is not set (or set to 100%).
 
 **[⬆ back to top](#table-of-contents)**
 
@@ -902,6 +935,8 @@ Float Layout
   * 讓浮動元素下方的元素，不會往上移動到浮動元素旁邊，可使用 `clear` 屬性
 
   * `clear` 接受三種不同的值 `left`、`right`、`both`
+
+  * If an element is taller than the element containing it, and it is floated, it will overflow outside of its container. Then we can add `overflow: auto` to the containing element to fix this problem
 
 **[⬆ back to top](#table-of-contents)**
 
