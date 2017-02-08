@@ -32,6 +32,8 @@
   3. [Responsive Web Design](#responsive-web-design)
   4. [Flexbox](#flexbox)
 
+[Form](#form)
+
 [Advanced CSS](#advanced-css)
 
 [Reference Information](#reference-information)
@@ -246,6 +248,16 @@ Three Ways to Insert CSS
     }
     ```
 
+  * There are four different combinators in CSS3：
+
+    - descendant selector `(space)`
+
+    - child selector `(>)`
+
+    - adjacent sibling selector `(+)`
+
+    - general sibling selector `(~)`
+
   * **群組選擇器 (_Grouping Selectors_)**：選定頁面上指定的標籤群，賦予相同樣式，可以使用任何有效的選擇器
 
     ex :
@@ -280,7 +292,7 @@ Three Ways to Insert CSS
     }
     ```
 
-  * **後裔選擇器 (_Descendant Selector_)**：選定頁面上指定的後裔標籤，可以使用任何有效的選擇器
+  * **後裔選擇器 (_Descendant Selector_)**：選定頁面上所有指定的後裔標籤，可以使用任何有效的選擇器
 
     ex :
 
@@ -297,7 +309,7 @@ Three Ways to Insert CSS
     }
     ```
 
-  * **屬性選擇器 (_Attribute Selector_)**：選定頁面上擁有該屬性的標籤
+  * **屬性選擇器 (_Attribute Selector_)**：選定頁面上所有擁有該屬性的標籤
 
     ex :
 
@@ -323,17 +335,31 @@ Three Ways to Insert CSS
 
     /* 選取 href 屬性開頭為 "https://" 的 <a> 標籤 */
 
+    /* The value has to be a whole word, either alone, like class="top", or followed by a hyphen( - ), like class="top-text" */
+
+    a[href|="https://"] { {
+        background: yellow;
+    }
+
+    /* 選取 href 屬性開頭為 "https://" 的 <a> 標籤 */
+
+    /* The value does not have to be a whole word */
+
     a[href^="https://"] {
       font-size: 16px;
     }
 
     /* 選取 href 屬性開頭為 ".pdf" 的 <a> 標籤 */
 
+    /* The value does not have to be a whole word */
+
     a[href$=".pdf"] {
       font-weight: 400;
     }
 
     /* 選取 src 屬性包含 "headshot" 字元的 <img> 標籤 */
+
+    /* The value does not have to be a whole word */
 
     img[src*="headshot"] {
       margin-left: 10px;
@@ -352,7 +378,7 @@ Three Ways to Insert CSS
     }
     ```
 
-  * **鄰近兄弟選擇器 (_Adjacent Siblings Selectors_)**：選取指定兄弟元素標籤，使用 `+` 表示其關係
+  * **鄰近兄弟選擇器 (_Adjacent Siblings Selectors_)**：選取最鄰近的指定兄弟元素標籤，使用 `+` 表示其關係
 
     ex :
 
@@ -376,20 +402,34 @@ Three Ways to Insert CSS
     }
     ```
 
-  * **擬類別 (_Pseudo-Classes_)**：能根據和使用者的互動狀態，來套用不同樣式
+  * **擬類別 (_Pseudo-Classes_)**：A pseudo-class is used to define a special state of an element.
 
-    ex :
+    > `a:hover` MUST come after `a:link` and `a:visited` in the CSS definition in order to be effective `a:active` MUST come after `a:hover` in the CSS definition in order to be effective
 
-    ```css
-    /* 在使用者游標移過 <a> 標籤時，套用樣式 */
+    - Pseudo-class names are not case-sensitive.
 
-    a:hover {
-      color: yellow;
-      font-weight: 400;
-    }
-    ```
+      ex :
 
-  * **擬元素 (_Pseudo-Elements_)**：能根據特定的規則，來套用不同樣式
+      ```css
+      /* 在使用者游標移過 <a> 標籤時，套用樣式 */
+
+      a:hover {
+        color: yellow;
+        font-weight: 400;
+      }
+      ```
+
+    - Pseudo-classes can be combined with CSS classes.
+
+      ex :
+
+      ```css
+      a.highlight:hover {
+        color: #ff0000;
+      }
+      ```
+
+  * **擬元素 (_Pseudo-Elements_)**：A pseudo-element is used to style specified parts of an element.
 
     > 擬元素前綴使用 `::`，擬類別則使用 `:`
 
@@ -398,11 +438,29 @@ Three Ways to Insert CSS
     ```css
     /* 選取 <p> 標籤的第一個字元，套用樣式 */
 
+    /* `::first-letter` pseudo-element can only be applied to block-level elements. */
+
     p::first-letter {
       color: #ff0000;
       font-size: xx-large;
     }
     ```
+
+    - Multiple Pseudo-elements：Several pseudo-elements can also be combined.
+
+      ex :
+
+      ```css
+      p::first-letter {
+        color: #ff0000;
+        font-size: xx-large;
+      }
+
+      p::first-line {
+        color: #0000ff;
+        font-variant: small-caps;
+      }
+      ```
 
     > 更多可供使用的擬類別 及 擬元素，請參考 [MDN CSS Reference](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference#Selectors)
 
@@ -1206,6 +1264,64 @@ Flexbox
         flex-basis: 400px;
       }
       ```
+
+**[⬆ back to top](#table-of-contents)**
+
+<br />
+<br />
+
+## Form
+
+<a name="focused-inputs"></a>
+Focused Inputs
+
+  * By default, some browsers will add a blue outline around the input when it gets focus (clicked on). You can remove this behavior by adding `outline: none` to the input.
+
+  * Use the `:focus` selector to do something with the input field when it gets focus
+
+    ex :
+
+    ```css
+    input[type=text] {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        box-sizing: border-box;
+        border: 1px solid #555;
+        outline: none;
+    }
+
+    input[type=text]:focus {
+        background-color: lightblue;
+    }
+    ```
+
+**[⬆ back to top](#table-of-contents)**
+
+<br />
+<br />
+
+<a name="input-with-icon-and-image"></a>
+Input With Icon And Image
+
+  * If you want an icon inside the input, use the `background-image` property and position it with the `background-position` property.
+
+    ex :
+
+    ```css
+    input[type=text] {
+      width: 100%;
+      box-sizing: border-box;
+      border: 2px solid #ccc;
+      border-radius: 4px;
+      font-size: 16px;
+      background-color: white;
+      background-image: url('searchicon.png');
+      background-position: 10px 10px;
+      background-repeat: no-repeat;
+      padding: 12px 20px 12px 40px;
+    }
+    ```
 
 **[⬆ back to top](#table-of-contents)**
 
