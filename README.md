@@ -10,7 +10,7 @@
   2. [CSS Comments](#css-comments)
   3. [Three Ways to Insert CSS](#three-ways-to-insert-css)
 
-[Selectors](#selector)
+[Selectors](#selectors)
 
 [Style Inheritance](#style-inheritance)
 
