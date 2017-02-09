@@ -1099,9 +1099,13 @@ Flexbox
 
   * Flexbox 由兩個元件組成：
 
-    - **Flex 容器 (_Flex Container_)**：任何 HTML 元素都可以是 flex 容器，只要它的 `display` 設定為 `flex`
+    - **Flex 容器 (_Flex Container_)**：A flex container is declared by setting the `display` property of an element to either flex (rendered as a block) or `inline-flex` (rendered as inline).
 
-    - **Flex 物件 (_Flex Object_)**： 任何 HTML 元素都可以是 flex 物件，只要是容器中的子元素會自動變成物件，物件會比鄰而列放在同一行，無論視窗多窄物件都不會換行，即使物件跑到容器之外
+    - **Flex 物件 (_Flex Object_)**：任何 HTML 元素都可以是 flex 物件，只要是容器中的子元素會自動變成物件，物件會比鄰而列放在同一行，無論視窗多窄物件都不會換行，即使物件跑到容器之外
+
+      - Flex items are positioned inside a flex container along a horizontal flex line, from left to right.
+
+      - By default there is only one flex line per flex container.
 
   * Flex Container 屬性：
 
