@@ -1015,15 +1015,35 @@ Float Layout
 <a name="responsive-web-design"></a>
 Responsive Web Design
 
-  * 響應式網頁設計 (_Responsive Web Design_) 又稱 RWD 讓頁面根據瀏覽器視窗寬度改變版型，可使同一個網站兼容不同螢幕大小的設備
+  * 響應式網頁設計 (_Responsive Web Design_)：Web pages can be viewed using many different devices：desktops, tablets, and phones. Your web page should look good, and be easy to use, regardless of the device.
 
   * 實作 RWD 主要有三個思維：
 
-    - 彈性的版型：隨著螢幕大小改變，彈性改變版型
+    - 彈性的版型：隨著螢幕大小改變，彈性改變版型 (rely on Viewport)
 
-    - 彈性的圖像及影像媒體：隨著螢幕大小改變，彈性改變圖像及影像媒體
+    - 彈性的圖像及影像媒體：隨著螢幕大小改變，彈性改變圖像及影像媒體 (rely on Viewport)
 
-    - 媒體查詢 (_Media Queries_)：為不同螢幕大小，套用不同樣式
+    - 媒體查詢 (_Media Queries_)：A CSS technique introduced in CSS3. It uses the `@media` rule to include a block of CSS properties only if a certain condition is true.
+
+  * What is the viewport：The viewport is the user's visible area of a web page.
+
+  * The viewport varies with the device, and will be smaller on a mobile phone than on a computer screen.
+
+  * When we started surfing the internet using tablets and mobile phones, fixed size web pages were too large to fit the viewport. To fix this, browsers on those devices scaled down the entire web page to fit the screen.
+
+  * HTML5 introduced a method to take control over the viewport, through the `<meta>` tag in all your web pages.
+
+    ex :
+
+    ```html
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    ```
+
+  * A `<meta>` viewport element gives the browser instructions on how to control the page's dimensions and scaling.
+
+  * The `width=device-width` part sets the width of the page to follow the screen-width of the device.
+
+  * The `initial-scale=1.0` part sets the initial zoom level when the page is first loaded by the browser.
 
   * 媒體查詢可在外部樣式表及內部樣式表中建立，並設定指定中斷點 (_Breakpoints_)
 
