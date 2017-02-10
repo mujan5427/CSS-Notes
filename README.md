@@ -1101,7 +1101,7 @@ Flexbox
 
     - **Flex 容器 (_Flex Container_)**：A flex container is declared by setting the `display` property of an element to either flex (rendered as a block) or `inline-flex` (rendered as inline).
 
-    - **Flex 項目 (_Flex Item)**：任何 HTML 元素都可以是 flex 項目，只要是容器中的子元素會自動變成項目，項目會比鄰而列放在同一行，無論視窗多窄項目都不會換行，即使項目跑到容器之外
+    - **Flex 項目 (_Flex Item_)**：任何 HTML 元素都可以是 flex 項目，只要是容器中的子元素會自動變成項目，項目會比鄰而列放在同一行，無論視窗多窄項目都不會換行，即使項目跑到容器之外
 
       - Flex items are positioned inside a flex container along a horizontal flex line, from left to right.
 
@@ -1214,7 +1214,7 @@ Flexbox
 
     - `order`：The property specifies the order of a flexible item relative to the rest of the flexible items inside the same container. (屬性值使用數字表示，越小越前面)
 
-      > 可以只設定一群物件中的其中一個物件，往最左邊排設定 -1，往最右邊排設定 1
+      > 可以只設定一群項目中的其中一個項目，往最左邊排設定 -1，往最右邊排設定 1
 
       ex :
 
