@@ -1047,13 +1047,13 @@ Responsive Web Design
 
   * 媒體查詢可在外部樣式表及內部樣式表中建立，並設定指定中斷點 (_Breakpoints_)
 
-    - 指定螢幕寬度時：media="(width: 480px)"
+    - 指定 viewport 寬度時：media="(width: 480px)"
 
-    - 指定螢幕寬度以下時：media="(max-width: 480px)"
+    - 指定 viewport 寬度以下時：media="(max-width: 480px)"
 
-    - 指定螢幕寬度以上時：media="(min-width: 480px)"
+    - 指定 viewport 寬度以上時：media="(min-width: 480px)"
 
-    - 指定螢幕寬度區間時：media="(min-width: 480px) and (max-width: 768px)"
+    - 指定 viewport 寬度區間時：media="(min-width: 480px) and (max-width: 768px)"
 
     - 建立外部樣式表媒體查詢：
 
@@ -1097,37 +1097,39 @@ Responsive Web Design
 <a name="flexbox"></a>
 Flexbox
 
-  * Flexbox 由兩個元件組成：
+  * Flexbox consists of flex containers and flex items：
 
     - **Flex 容器 (_Flex Container_)**：A flex container is declared by setting the `display` property of an element to either flex (rendered as a block) or `inline-flex` (rendered as inline).
 
-    - **Flex 物件 (_Flex Object_)**：任何 HTML 元素都可以是 flex 物件，只要是容器中的子元素會自動變成物件，物件會比鄰而列放在同一行，無論視窗多窄物件都不會換行，即使物件跑到容器之外
+    - **Flex 項目 (_Flex Item)**：任何 HTML 元素都可以是 flex 項目，只要是容器中的子元素會自動變成項目，項目會比鄰而列放在同一行，無論視窗多窄項目都不會換行，即使項目跑到容器之外
 
       - Flex items are positioned inside a flex container along a horizontal flex line, from left to right.
 
       - By default there is only one flex line per flex container.
 
-  * Flex Container 屬性：
+  * Flex Container Properties：
 
-    - `flex-flow`：能掌控物件顯示方向及是否換行，需要兩個數值，以空白區隔
+    - `flex-flow`：能掌控項目顯示方向及是否換行，需要兩個數值，以空白區隔
 
-      - 第一個數值是方向，有四種值：
+      > A shorthand property for flex-direction and flex-wrap
 
-        - row：預設的顯示方向，比鄰而列顯示物件，HTML source order 第一個物件會在最左邊，最後一個物件在最右邊
+      - 第一個數值是 `flex-direction`：This property specifies the direction of the flexible items inside the flex container.
 
-        - row-reverse：比鄰而列顯示物件，但是會翻轉原本 HTML source order 顯示的順序，改為最後一個物件在最左邊
+        - row：預設的顯示方向，比鄰而列顯示項目，HTML source order 第一個項目會在最左邊，最後一個項目在最右邊 (left-to-right, top-to-bottom)
 
-        - column：使物件如同區塊等級元素般上下堆疊
+        - row-reverse：If the writing-mode (direction) is left to right, the flex items will be laid out right to left
 
-        - column-reverse：如同 column，只是翻轉原本 HTML source order 顯示的順序
+        - column：If the writing system is horizontal, the flex items will be laid out vertically
 
-      - 第二個數值是是否換行或換欄，有三種值：
+        - column-reverse：Same as column, but reversed
 
-        - nowrap：預設的換行方式，無論視窗多窄，物件都會保持在同一列，對於欄則是上下堆疊排列
+      - 第二個數值是 `flex-wrap`：This property specifies whether the flex items should wrap or not, if there is not enough room for them on one flex line.
 
-        - wrap：讓無法被容器寬度容納的物件換行，也就是物件不會跑到容器之外
+        - nowrap：預設的換行方式，無論視窗多窄，項目都會保持在同一列，對於欄則是上下堆疊排列
 
-        - wrap-reverse：如同 wrap，只是翻轉原本 HTML source order 顯示的順序
+        - wrap：讓無法被容器寬度容納的項目換行，也就是項目不會跑到容器之外
+
+        - wrap-reverse：Same as wrap, but reversed
 
       ex :
 
@@ -1138,19 +1140,19 @@ Flexbox
       }
       ```
 
-    - `justify-content`：能掌控物件對齊方式，只在物件有固定寬度並且物件總寬度小於容器時
+    - `justify-content`：Horizontally aligns the flexible container's items，只在項目有固定寬度並且項目總寬度小於容器時
 
-      > 如果使用 flex 屬性在物件上，則此屬性會完全沒有效果
+      > 如果使用 flex 屬性在項目上，則此屬性會完全沒有效果
 
-      - flex-start：靠左對齊物件 (#1)
+      - flex-start：靠左對齊項目 (#1)
 
-      - flex-end：靠右對齊物件 (#2)
+      - flex-end：靠右對齊項目 (#2)
 
-      - center：置中對齊物件 (#3)
+      - center：置中對齊項目 (#3)
 
-      - space-between：將物件與物件之間的空白間距，平均分配在每個物件與物件之間 (#4)
+      - space-between：將項目與項目之間的空白間距，平均分配在每個項目與項目之間 (#4)
 
-      - space-around：將物件與物件之間的空白間距，平均分配在每個物件兩側 (#5)
+      - space-around：將項目與項目之間的空白間距，平均分配在每個項目兩側 (#5)
 
       ![Flexbox justify-content](./assets/images/flexbox-justify-content.png)
 
@@ -1163,17 +1165,17 @@ Flexbox
       }
       ```
 
-    - `align-items`：決定不同高度的物件如何在容器中垂直擺放
+    - `align-items`：Vertically aligns the flexible container's items
 
-      - flex-start：對齊所有物件的上方到容器上方 (#1)
+      - flex-start：對齊所有項目的上方到容器上方 (#1)
 
-      - flex-end：對齊所有物件的下方到容器下方 (#2)
+      - flex-end：對齊所有項目的下方到容器下方 (#2)
 
-      - center：垂直置中所有物件 (#3)
+      - center：垂直置中所有項目 (#3)
 
-      - baseline：對齊每個物件中第一個元素的底線 (#4)
+      - baseline：對齊每個項目中第一個元素的底線 (#4)
 
-      - stretch：物件的預設垂直擺放方式，將每個物件延展至與容器相同高度 (#5)
+      - stretch：項目的預設垂直擺放方式，將每個項目延展至與容器相同高度 (#5)
 
       ![Flexbox align-items](./assets/images/flexbox-align-items.png)
 
@@ -1186,29 +1188,31 @@ Flexbox
       }
       ```
 
-    - `align-content`：在容器的寬度小於物件總寬度時，決定物件如何在容器中垂直擺放
+    - `align-content`：在容器的寬度小於項目總寬度時，決定項目如何在容器中垂直擺放
 
-      > 不會因為物件總寬度大於容器，而改變物件寬度，但會讓物件換行 (align-items 則相反)
+      > It is similar to `align-items`, but instead of aligning flex items, it aligns flex lines.
 
-      > 因為此屬性會使物件換行，所以物件對齊到上方容器，不是全部物件一起對齊，只會以最上方列的物件對齊
+      > 不會因為項目總寬度大於容器，而改變項目寬度，但會讓項目換行 (align-items 則相反)
 
-      > 必須在容器 `flex-wrap: wrap` 和容器的寬度小於物件總寬度時才有效
+      > 因為此屬性會使項目換行，所以項目對齊到上方容器，不是全部項目一起對齊，只會以最上方列的項目對齊
 
-      - flex-start：將物件的上方對齊到容器上方
+      > 必須在容器 `flex-wrap: wrap` 和容器的寬度小於項目總寬度時才有效
 
-      - flex-end：將物件的下方對齊到容器下方
+      - flex-start：將項目的上方對齊到容器上方
 
-      - center：垂直置中所有物件
+      - flex-end：將項目的下方對齊到容器下方
 
-      - space-between：將上方列物件對齊到容器上方，下方列物件對齊到容器下方
+      - center：垂直置中所有項目
 
-      - space-around：將上方列物件對齊到容器上方，下方列物件對齊到容器下方，並平均分配物件與物件之間的空白間距
+      - space-between：將上方列項目對齊到容器上方，下方列項目對齊到容器下方
 
-      - stretch：物件列的預設垂直擺放方式，將每個物件延展成相同高度，不同列有不同高度的延展
+      - space-around：將上方列項目對齊到容器上方，下方列項目對齊到容器下方，並平均分配項目與項目之間的空白間距
 
-  * Flex Object 屬性：
+      - stretch：項目列的預設垂直擺放方式，將每個項目延展成相同高度，不同列有不同高度的延展
 
-    - `order`：使物件不按照 HTML source order 排序，而是按照設定的屬性值依序顯示，屬性值使用數字表示，越小越前面
+  * Flex Item Properties：
+
+    - `order`：The property specifies the order of a flexible item relative to the rest of the flexible items inside the same container. (屬性值使用數字表示，越小越前面)
 
       > 可以只設定一群物件中的其中一個物件，往最左邊排設定 -1，往最右邊排設定 1
 
@@ -1220,21 +1224,62 @@ Flexbox
       }
       ```
 
-    - `align-self`：使指定物件按照指定方式垂直對齊
+    - `margin`：Setting `margin: auto` will absorb extra space. It can be used to push flex items into different positions.
 
-      > 會覆蓋任何 `align-items` 屬性，因此可達到所有物件對齊容器下方，其中一個對齊容器上方的效果
+      > In the following example we set `margin-right: auto` on the first flex item. This will cause all the extra space to be absorbed to the right of that element.
 
-      - flex-start：將物件對齊到容器上方
+      ex :
 
-      - flex-end：將物件對齊到容器下方
+      ```css
+      .flex-container {
+          display: flex;
+          width: 400px;
+          height: 250px;
+          background-color: lightgrey;
+      }
 
-      - center：垂直置中物件
+      .flex-item {
+          background-color: cornflowerblue;
+          width: 75px;
+          height: 75px;
+          margin: 10px;
+      }
 
-      - baseline：對齊物件中第一個元素的底線
+      .flex-item:first-child {
+          margin-right: auto;
+      }
+      ```
 
-        > 只有在數個 `align-self: baseline` 物件存在時，才有效果
+      > Perfect Centering is very easy with flexbox.
 
-      - stretch：物件的預設垂直擺放方式，將物件延展至與容器相同高度
+      > Setting `margin: auto` will make the item perfectly centered in both axis.
+
+      ex :
+
+      ```css
+      .flex-item {
+        background-color: cornflowerblue;
+        width: 75px;
+        height: 75px;
+        margin: auto;
+      }
+      ```
+
+    - `align-self`：使指定項目按照指定方式垂直對齊
+
+      > 會覆蓋任何 `align-items` 屬性，因此可達到所有項目對齊容器下方，其中一個項目對齊容器上方的效果
+
+      - flex-start：將項目對齊到容器上方
+
+      - flex-end：將項目對齊到容器下方
+
+      - center：垂直置中項目
+
+      - baseline：對齊項目中第一個元素的底線
+
+        > 只有在數個 `align-self: baseline` 項目存在時，才有效果
+
+      - stretch：項目的預設垂直擺放方式，將項目延展至與容器相同高度
 
       ex :
 
@@ -1246,7 +1291,7 @@ Flexbox
 
     - `flex`：實際上是三個屬性的簡寫 `flex-grow`、`flex-shrink`、`flex-basis`
 
-      - 如果物件沒有被設定 `flex` 屬性，瀏覽器會使用預設值 `flex: 0 1 auto`
+      - 如果項目沒有被設定 `flex` 屬性，瀏覽器會使用預設值 `flex: 0 1 auto`
 
       - 如果省略 `flex-shrink`、`flex-basis` 不寫，而 `flex: 1` 時，瀏覽器會使用預設值 `flex: 1 1 0%`
 
@@ -1258,11 +1303,11 @@ Flexbox
       }
       ```
 
-    - `flex-grow`：指定物件的相對寬度，屬性值為相對單位，使用數字表示，如果 `flex-basis` 數值相同，則數字越大越寬
+    - `flex-grow`：指定項目的相對寬度，屬性值為相對單位，使用數字表示，如果 `flex-basis` 數值相同，則數字越大越寬
 
-      > `flex-grow` 大於 0 時，物件會放大填滿容器整體寬度
+      > `flex-grow` 大於 0 時，項目會放大填滿容器整體寬度
 
-      > `flex-grow` 等於 0 時，物件的寬度會等於 `flex-basis` 設定的數值
+      > `flex-grow` 等於 0 時，項目的寬度會等於 `flex-basis` 設定的數值
 
       ![Flexbox flex-grow](./assets/images/flexbox-flex-grow.png)
 
@@ -1274,9 +1319,9 @@ Flexbox
       }
       ```
 
-    - `flex-shrink`：決定相同列中的物件可以相對於其他物件寬度變得多窄，屬性值為相對單位，使用數字表示，數字越大越窄
+    - `flex-shrink`：決定相同列中的項目可以相對於其他項目寬度變得多窄，屬性值為相對單位，使用數字表示，數字越大越窄
 
-      > 此數值只有在 `flex-wrap: nowrap` 及物件總寬度大於容器時作用
+      > 此數值只有在 `flex-wrap: nowrap` 及項目總寬度大於容器時作用
 
       ex :
 
@@ -1286,11 +1331,11 @@ Flexbox
       }
       ```
 
-    - `flex-basis`：決定物件的基本寬度，屬性值為具體數值，可用 `px`、`em`、`%` 表示
+    - `flex-basis`：Specifies the initial width of a flexible item. Legal values：`auto`, `inherit`, or a number followed by `%`, `px`, `em` or any other length unit
 
-      > 瀏覽器會把剩餘空間按照 `flex-grow` 指定的比例，加總到物件設定的 `flex-basis` 寬度上，得出物件實際的寬度，以達到填滿容器的效果
+      > 瀏覽器會把剩餘空間按照 `flex-grow` 指定的比例，加總到項目設定的 `flex-basis` 寬度上，得出項目實際的寬度，以達到填滿容器的效果
 
-      > 剩餘空間 = 容器寬度 - 物件總寬度
+      > 剩餘空間 = 容器寬度 - 項目總寬度
 
       ex :
 
