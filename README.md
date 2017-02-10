@@ -8,7 +8,8 @@
 
   1. [CSS Syntax](#css-syntax)
   2. [CSS Comments](#css-comments)
-  3. [Three Ways to Insert CSS](#three-ways-to-insert-css)
+  3. [CSS Units](#css-units)
+  4. [Three Ways to Insert CSS](#three-ways-to-insert-css)
 
 [Selectors](#selectors)
 
@@ -100,6 +101,36 @@ CSS Comments
     a multi-line
     comment */
     ```
+
+**[⬆ back to top](#table-of-contents)**
+
+<br />
+<br />
+
+<a name="css-units"></a>
+CSS Units
+
+  * CSS has several different units for expressing a length.
+
+  * Length is a number followed by a length unit, such as 10px, 2em, etc.
+
+  * A whitespace cannot appear between the number and the unit. However, if the value is 0, the unit can be omitted.
+
+  * There are two types of length units：relative and absolute.
+
+  * Relative length units specify a length relative to another length property.
+
+    - em：Relative to the `font-size` of the element (2em means 2 times the size of the current font).
+
+    - rem：Relative to `font-size` of the root element.
+
+    - %：Percent
+
+    > The size of an em or percent depends on its parent. If the text size of body is 16 pixels, then 150% or 1.5em will be 24 pixels (1.5 * 16).
+
+  * Absolute length units are fixed and a length expressed in any of these will appear as exactly that size.
+
+    - px：pixels (1px = 1/96th of 1in)
 
 **[⬆ back to top](#table-of-contents)**
 
