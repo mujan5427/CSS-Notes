@@ -203,7 +203,7 @@ Three Ways to Insert CSS
 
   * There are four different combinators in CSS3：
 
-    - descendant selector `(space)`
+    - descendant selector `(space)` or `(>>)`
 
     - child selector `(>)`
 
@@ -404,6 +404,15 @@ Three Ways to Insert CSS
 
     img[src*="headshot"] {
       margin-left: 10px;
+    }
+
+    /* Adding an i (or I) before the closing bracket causes the value to be compared case-insensitively.
+    (for characters within the ASCII range). */
+
+    /* This matches any capitalization of "email", e.g. "email", "EMAIL", "eMaIL", etc. */
+
+    input[type="email" i] {
+      border-color: blue;
     }
     ```
 
