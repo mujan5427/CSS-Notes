@@ -195,7 +195,21 @@ Three Ways to Insert CSS
 
 ## Selectors
 
-  * 透過選擇器 (_selectors_) 告知 CSS 想要選定哪個元素
+  * 透過選擇器 (_selectors_) 告知 CSS 想要選定哪些元素
+
+  * A CSS selector can contain more than one simple selector. Between the simple selectors, we can include a combinator.
+
+  * Combinators：A combinator is something that explains the relationship between the selectors.
+
+  * There are four different combinators in CSS3：
+
+    - descendant selector `(space)`
+
+    - child selector `(>)`
+
+    - adjacent sibling selector `(+)`
+
+    - general sibling selector `(~)`
 
   * **類型選擇器 (_Type or Element Selectors_)**：選定頁面上每一個符合該類型的標籤
 
@@ -278,16 +292,6 @@ Three Ways to Insert CSS
       width: 720px;
     }
     ```
-
-  * There are four different combinators in CSS3：
-
-    - descendant selector `(space)`
-
-    - child selector `(>)`
-
-    - adjacent sibling selector `(+)`
-
-    - general sibling selector `(~)`
 
   * **群組選擇器 (_Grouping Selectors_)**：選定頁面上指定的標籤群，賦予相同樣式，可以使用任何有效的選擇器
 
