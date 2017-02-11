@@ -4,7 +4,7 @@
 
   1. [What is CSS](#what-is-css)
 
-[Style Sheets](#stylesheets)
+[Style Sheets](#style-sheets)
 
   1. [CSS Syntax](#css-syntax)
   2. [CSS Comments](#css-comments)
