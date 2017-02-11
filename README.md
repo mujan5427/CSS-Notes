@@ -364,6 +364,12 @@ Three Ways to Insert CSS
       color: black;
     }
 
+    /* 選取所有 title 屬性值包含完整單字 flower 的標籤 */
+
+    [title~=flower] {
+      border: 5px solid yellow;
+    }
+
     /* 選取 href 屬性開頭為 "https://" 的 <a> 標籤 */
 
     /* The value has to be a whole word, either alone, like class="top", or followed by a hyphen( - ), like class="top-text" */
@@ -409,24 +415,28 @@ Three Ways to Insert CSS
     }
     ```
 
-  * **鄰近兄弟選擇器 (_Adjacent Siblings Selectors_)**：選取最鄰近的指定兄弟元素標籤，使用 `+` 表示其關係
+  * **鄰近兄弟選擇器 (_Adjacent Siblings Selectors_)**：This selector is used to select elements that is placed immediately after (not inside) the first specified element.
+
+    > 使用 `+` 表示其關係
 
     ex :
 
     ```css
-    /* 選取兄弟元素為 <h2> 的 <p> 標籤 */
+    /* 選取 <h2> 的最鄰近兄弟元素，而且要是 <p> 標籤 */
 
     h2 + p {
       margin: 0 10px 10px 0;
     }
     ```
 
-  * **通用兄弟選擇器 (_General Sibling Selectors_)**：選取相同層級的所有兄弟元素標籤，使用 `~` 表示其關係
+  * **通用兄弟選擇器 (_General Sibling Selectors_)**：同鄰近兄弟選擇器，差別在會選取指定元素之後的所有指定兄弟元素，且不必是最鄰近的
+
+    > 使用 `~` 表示其關係
 
     ex :
 
     ```css
-    /* 選取所有是 <h2> 的兄弟標籤的 <p> 標籤 */
+    /* 選取所有是 <h2> 之後的兄弟標籤，且是 <p> 標籤 */
 
     h2 ~ p {
       margin: 0 10px 10px 0;
