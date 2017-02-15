@@ -1469,4 +1469,8 @@ CSS：The Missing Manual, 4E Traditional Chinese (Author：David Sawyer McFarlan
 
 CSS Tutorial (Website：[w3schools](https://www.w3schools.com/css/default.asp))
 
+Descendant Selectors (Website：[Mozilla Developer Network](https://developer.mozilla.org/en-US/docs/Web/CSS/Descendant_selectors))
+
+Attribute Selectors (Website：[Mozilla Developer Network](https://developer.mozilla.org/en-US/docs/Web/CSS/Attribute_selectors))
+
 <br />
