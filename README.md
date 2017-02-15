@@ -35,8 +35,6 @@
 
 [Form](#form)
 
-[Advanced CSS](#advanced-css)
-
 [Reference Information](#reference-information)
 
 <br />
