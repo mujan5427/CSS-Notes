@@ -35,6 +35,9 @@
 
 [Form](#form)
 
+  1. [Focused Inputs](#focused-inputs)
+  2. [Input With Icon And Image](#input-with-icon-and-image)
+
 [Reference Information](#reference-information)
 
 <br />
