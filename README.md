@@ -1016,7 +1016,7 @@ Basic Typesetting Methods
 
         ![Position Static](./assets/images/position-static.png)
 
-        > `top`、`bottom`、`left`、`right` 不會作用在靜態定位元素上
+        > Static positioned elements are not affected by the `top`, `bottom`, `left`, and `right` properties.
 
   * `float` 和 `position: 非 static` 無法同時存在同一個元素
 
