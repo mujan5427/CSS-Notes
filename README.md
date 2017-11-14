@@ -782,6 +782,10 @@ Setting max-width
 
   * Every HTML element has a default display value depending on what type of element it is. The default display value for most elements is `block` or `inline`.
 
+  * `block-level` element always starts on a new line and takes up the full width available (stretches out to the left and right as far as it can).
+
+  * `inline` element does not start on a new line and only takes up as much width as necessary.
+
   * `inline-block` elements are like `inline` elements but they can have a width and a height.
 
   * Hiding an element can be done by setting the `display` property to `none`, `visibility: hidden` also hides an element. However, the element will still take up the same space as before. The element will be hidden, but still affect the layout.
