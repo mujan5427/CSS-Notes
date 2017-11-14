@@ -769,8 +769,6 @@ Setting max-width
 
   * The value of the `max-width` property overrides `width`.
 
-  * You can set the margins to auto, to horizontally center the element within its container.
-
 **[⬆ back to top](#table-of-contents)**
 
 <br />
