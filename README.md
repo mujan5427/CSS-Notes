@@ -800,6 +800,11 @@ Setting max-width
 
   * Setting the display property of an element only changes how the element is displayed, **NOT** what kind of element it is. So, an inline element with `display: block` is not allowed to have other block elements inside it.
 
+**[⬆ back to top](#table-of-contents)**
+
+<br />
+<br />
+
 ## Box Model
 
   * **區塊模型 (_Box Model_)**：All HTML elements can be considered as boxes, It consists of：margins, borders, padding, and the actual content.
