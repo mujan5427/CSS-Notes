@@ -1324,6 +1324,8 @@ Flexbox
 
       - 如果項目沒有被設定 `flex` 屬性，瀏覽器會使用預設值 `flex: 0 1 auto`
 
+        > The default value is "0 0 auto" in IE10.
+
       - 如果省略 `flex-shrink`、`flex-basis` 不寫，而 `flex: 1` 時，瀏覽器會使用預設值 `flex: 1 1 0%`
 
       ex :
