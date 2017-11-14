@@ -1453,4 +1453,6 @@ Attribute Selectors (Website：[Mozilla Developer Network](https://developer.moz
 
 HTML Elements：Block-Level vs. Inline Elements (Website：[ThoughtCo](https://www.thoughtco.com/block-level-vs-inline-elements-3468615))
 
+Flexible box ("Flexbox") layout in Internet Explorer 10 (Website：[Microsoft Developer Network](https://msdn.microsoft.com/en-us/library/hh673531.aspx))
+
 <br />
