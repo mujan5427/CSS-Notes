@@ -1296,47 +1296,6 @@ Flexbox
       }
       ```
 
-    - `margin`：Setting `margin: auto` will absorb extra space. It can be used to push flex items into different positions.
-
-      > In the following example we set `margin-right: auto` on the first flex item. This will cause all the extra space to be absorbed to the right of that element.
-
-      ex :
-
-      ```css
-      .flex-container {
-          display: flex;
-          width: 400px;
-          height: 250px;
-          background-color: lightgrey;
-      }
-
-      .flex-item {
-          background-color: cornflowerblue;
-          width: 75px;
-          height: 75px;
-          margin: 10px;
-      }
-
-      .flex-item:first-child {
-          margin-right: auto;
-      }
-      ```
-
-      > Perfect Centering is very easy with flexbox.
-
-      > Setting `margin: auto` will make the item perfectly centered in both axis.
-
-      ex :
-
-      ```css
-      .flex-item {
-        background-color: cornflowerblue;
-        width: 75px;
-        height: 75px;
-        margin: auto;
-      }
-      ```
-
     - `align-self`：使指定項目按照指定方式垂直對齊
 
       > 會覆蓋任何 `align-items` 屬性，因此可達到所有項目對齊容器下方，其中一個項目對齊容器上方的效果
