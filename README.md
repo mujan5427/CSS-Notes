@@ -786,6 +786,14 @@ Setting max-width
 
   * `inline` element does not start on a new line and only takes up as much width as necessary.
 
+    > Inline elements ignore several properties：
+
+    * `width` and `height`.
+
+    * `max-width` and `max-height`.
+
+    * `min-width` and `min-height`.
+
   * `inline-block` elements are like `inline` elements but they can have a width and a height.
 
   * Hiding an element can be done by setting the `display` property to `none`, `visibility: hidden` also hides an element. However, the element will still take up the same space as before. The element will be hidden, but still affect the layout.
