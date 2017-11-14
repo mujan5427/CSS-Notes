@@ -813,11 +813,11 @@ Setting max-width
 
   * Explanation of the different parts：
 
-    - Margin：Clears an area outside the border. The margin is transparent
+    - Margin (外距)：Clears an area outside the border. The margin is transparent
 
-    - Border：A border that goes around the padding and content
+    - Border (邊線)：A border that goes around the padding and content
 
-    - Padding：Clears an area around the content. The padding is transparent
+    - Padding (內距)：Clears an area around the content. The padding is transparent
 
     - Content：The content of the box, where text and images appear
 
@@ -929,7 +929,7 @@ Setting max-width
 
   * 改變瀏覽器計算元素寬度的方式，可以使用 `box-sizing` 屬性，屬性值如下：
 
-    - content-box：瀏覽器預設的模式
+    - content-box：The specified `width` and `height` of an element do not include `padding` and `border`. (default)
 
     - padding-box：瀏覽器會將內距的寬度納入到內容區塊
 
