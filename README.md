@@ -755,6 +755,8 @@ Setting width And height
     }
     ```
 
+  * You can set the margins to auto, to horizontally center the element within its container. The element will take up the specified width, and the remaining space will be split equally between the two margins.
+
 **[⬆ back to top](#table-of-contents)**
 
 <br />
