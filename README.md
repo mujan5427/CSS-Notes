@@ -38,6 +38,8 @@
   1. [Focused Inputs](#focused-inputs)
   2. [Input With Icon And Image](#input-with-icon-and-image)
 
+[Transforms](#transforms)
+
 [Reference Information](#reference-information)
 
 <br />
@@ -1435,6 +1437,19 @@ Input With Icon And Image
       padding: 12px 20px 12px 40px;
     }
     ```
+
+**[⬆ back to top](#table-of-contents)**
+
+<br />
+<br />
+
+## Transforms
+
+  * CSS3 transforms allow you to translate, rotate, scale, and skew elements.
+
+  * A transformation is an effect that lets an element change shape, size and position.
+
+  * CSS3 supports 2D and 3D transformations.
 
 **[⬆ back to top](#table-of-contents)**
 
