@@ -42,8 +42,8 @@
 
 [Transitions](#transitions)
 
-  1. [Introduction](#introduction)
-  2. [How to use](#how-to-use)
+  1. [Introduction transitions](#introduction-transitions)
+  2. [How to use transitions](#how-to-use-transitions)
   3. [Change several property values](#change-several-property-values)
   4. [Specify the speed curve of the transition](#specify-the-speed-curve-of-the-transition)
 
@@ -1465,8 +1465,8 @@ Input With Icon And Image
 
 ## Transitions
 
-<a name="introduction"></a>
-Introduction
+<a name="introduction-transitions"></a>
+Introduction transitions
 
   * CSS3 transitions allows you to change property values smoothly (from one value to another), over a given duration.
 
@@ -1475,8 +1475,8 @@ Introduction
 <br />
 <br />
 
-<a name="how-to-use"></a>
-How to use ?
+<a name="how-to-use-transitions"></a>
+How to use transitions ?
 
   * To create a transition effect, you must specify two things：
 
