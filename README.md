@@ -49,6 +49,11 @@
 
  [Animation](#animation)
 
+  1. [What are CSS animations ?](#what-are-css-animations)
+  2. [The @keyframes rule](#the-@keyframes-rule)
+  3. [Animation properties](#animation-properties)
+  4. [Animation shorthand property](#animation-shorthand-property)
+
 [Reference Information](#reference-information)
 
 <br />
