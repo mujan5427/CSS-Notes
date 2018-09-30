@@ -47,6 +47,8 @@
   3. [Change several property values](#change-several-property-values)
   4. [Specify the speed curve of the transition](#specify-the-speed-curve-of-the-transition)
 
+ [Animation](#animation)
+
 [Reference Information](#reference-information)
 
 <br />
@@ -1550,6 +1552,116 @@ Specify the speed curve of the transition
     * ease-in-out - specifies a transition effect with a slow start and end.
 
     * cubic-bezier(n,n,n,n) - lets you define your own values in a cubic-bezier function.
+
+**[⬆ back to top](#table-of-contents)**
+
+<br />
+<br />
+
+## Animation
+
+<a name="what-are-css-animations"></a>
+What are CSS Animations ?
+
+  * CSS animations allows animation of most HTML elements without using JavaScript or Flash !
+
+  * An animation lets an element gradually change from one style to another.
+
+  > To use CSS animation, you must first specify some keyframes for the animation.
+
+**[⬆ back to top](#table-of-contents)**
+
+<br />
+<br />
+
+<a name="the-@keyframes-rule"></a>
+The @keyframes Rule
+
+  * When you specify CSS styles inside the `@keyframes` rule, the animation will gradually change from the current style to the new style at certain times.
+
+  * To get an animation to work, you must bind the animation to an element.
+
+  **example**
+  ```css
+  @keyframes example {
+    0%   {background-color:red; left:0px; top:0px;}
+    25%  {background-color:yellow; left:200px; top:0px;}
+    50%  {background-color:blue; left:200px; top:200px;}
+    75%  {background-color:green; left:0px; top:200px;}
+    100% {background-color:red; left:0px; top:0px;}
+  }
+
+  // The element to apply the animation to
+
+  div {
+    width: 100px;
+    height: 100px;
+    position: relative;
+    background-color: red;
+    animation-name: example;
+    animation-duration: 4s;
+  }
+  ```
+
+  > If the `animation-duration` property is not specified, no animation will occur, because the default value is 0s (0 seconds).
+
+**[⬆ back to top](#table-of-contents)**
+
+<br />
+<br />
+
+<a name="animation-properties"></a>
+Animation Properties
+
+  * animation-delay : Specifies a delay for the start of an animation.
+
+  * animation-iteration-count : Specifies the number of times an animation should run.
+
+  * animation-direction : Specifies whether an animation should be played forwards, backwards or in alternate cycles.
+
+  * animation-timing-function : Specifies the speed curve of the animation.
+
+    * The `animation-timing-function` property can have the following values :
+
+      * ease - Specifies an animation with a slow start, then fast, then end slowly (this is default)
+
+      * linear - Specifies an animation with the same speed from start to end
+
+      * ease-in - Specifies an animation with a slow start
+
+      * ease-out - Specifies an animation with a slow end
+
+      * ease-in-out - Specifies an animation with a slow start and end
+
+      * cubic-bezier(n,n,n,n) - Lets you define your own values in a cubic-bezier function
+
+  * animation-fill-mode : Specifies a style for the target element when the animation is not playing (before it starts, after it ends, or both).
+
+**[⬆ back to top](#table-of-contents)**
+
+<br />
+<br />
+
+<a name="animation-shorthand-property"></a>
+Animation Shorthand Property
+
+  **example**
+  ```css
+  div {
+    animation-name: example;
+    animation-duration: 5s;
+    animation-timing-function: linear;
+    animation-delay: 2s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+  }
+
+  // The same animation effect as above can be achieved by using the shorthand animation property :
+
+  div {
+    animation: example 5s linear 2s infinite alternate;
+  }
+  ```
 
 **[⬆ back to top](#table-of-contents)**
 
