@@ -1572,7 +1572,7 @@ What are CSS Animations ?
 
   * An animation lets an element gradually change from one style to another.
 
-  > To use CSS animation, you must first specify some keyframes for the animation.
+  * To use CSS animation, you must first specify some keyframes for the animation.
 
 **[⬆ back to top](#table-of-contents)**
 
@@ -1586,27 +1586,27 @@ The @keyframes Rule
 
   * To get an animation to work, you must bind the animation to an element.
 
-  **example**
-  ```css
-  @keyframes example {
-    0%   {background-color:red; left:0px; top:0px;}
-    25%  {background-color:yellow; left:200px; top:0px;}
-    50%  {background-color:blue; left:200px; top:200px;}
-    75%  {background-color:green; left:0px; top:200px;}
-    100% {background-color:red; left:0px; top:0px;}
-  }
+    ex :
+    ```css
+    @keyframes example {
+      0%   {background-color:red; left:0px; top:0px;}
+      25%  {background-color:yellow; left:200px; top:0px;}
+      50%  {background-color:blue; left:200px; top:200px;}
+      75%  {background-color:green; left:0px; top:200px;}
+      100% {background-color:red; left:0px; top:0px;}
+    }
 
-  // The element to apply the animation to
+    // The element to apply the animation to
 
-  div {
-    width: 100px;
-    height: 100px;
-    position: relative;
-    background-color: red;
-    animation-name: example;
-    animation-duration: 4s;
-  }
-  ```
+    div {
+      width: 100px;
+      height: 100px;
+      position: relative;
+      background-color: red;
+      animation-name: example;
+      animation-duration: 4s;
+    }
+    ```
 
   > If the `animation-duration` property is not specified, no animation will occur, because the default value is 0s (0 seconds).
 
@@ -1650,7 +1650,7 @@ Animation Properties
 <a name="animation-shorthand-property"></a>
 Animation Shorthand Property
 
-  **example**
+  ex :
   ```css
   div {
     animation-name: example;
