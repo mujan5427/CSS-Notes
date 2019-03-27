@@ -943,11 +943,11 @@ Setting max-width
     }
     ```
 
-  * 改變瀏覽器計算元素寬度的方式，可以使用 `box-sizing` 屬性，屬性值如下：
+  * 改變瀏覽器計算元素寬、高度的方式，可以使用 `box-sizing` 屬性，屬性值如下：
 
     - content-box：The specified `width` and `height` of an element do not include `padding` and `border`. (default)
 
-    - padding-box：瀏覽器會將內距的寬度納入到內容區塊
+    - padding-box：瀏覽器會將內距的寬、高度納入到內容區塊
 
       ex :
 
@@ -961,7 +961,7 @@ Setting max-width
       }
       ```
 
-    - border-box：瀏覽器會將內距、邊線的寬度納入到內容區塊
+    - border-box：瀏覽器會將內距、邊線的寬、高度納入到內容區塊
 
       ex :
 
@@ -976,7 +976,7 @@ Setting max-width
       }
       ```
 
-  * 內容區塊大於樣式所設定的寬高時，內容區塊中的內容會溢出 box 區域，可使用 `overflow` 屬性控制
+  * 內容區塊大於樣式所設定的寬、高時，內容區塊中的內容會溢出 box 區域，可使用 `overflow` 屬性控制
 
     > The `overflow` property only works for block elements with a specified height.
 
