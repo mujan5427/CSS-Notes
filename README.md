@@ -1048,7 +1048,9 @@ Basic Typesetting Methods
 
   * When elements are positioned, they can overlap other elements.
 
-  * 堆疊元素：絕對定位元素會在其他定位元素之上或之下，元素的堆疊順序可透過 `z-index` 屬性控制
+  * 對於已被定位的元素，可透過 `z-index` 改變元素堆疊的順序
+
+    > 已被定位的元素 : `position` 設定，除了 `static` 以外的所有定位方式
 
   * An element can have a positive or negative stack order.
 
