@@ -885,7 +885,7 @@ Setting max-width
     }
     ```
 
-  * 行內元素 (_Inline Elements_) 只有左右內、外距，不能使用上下內、外距
+  * 行內元素 (_Inline Elements_) `padding` 上下左右都可以設定，`margin` 只能設定左右方向
 
   * 行內元素可以使用 `display` 屬性，改變成區塊等級元素、行內區塊...等等
 
